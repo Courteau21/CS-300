@@ -19,3 +19,4 @@ This project expanded my approach to designing software by reinforcing the impor
 How has your work on this project evolved the way you write programs that are maintainable, readable, and adaptable?
 
 Overall, this project improved the way I write programs by encouraging better naming conventions, modular function design, input validation, and in-line comments. I now focus more on readability and maintainability so that the code is easier to understand, modify, and extend in the future.
+ 
