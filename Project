@@ -1,0 +1,68 @@
+Evaluation of Data Structures 
+
+The vector is simple to implement. Loading the file requires iterating through all courses, which results in O(n) time. Printing the courses in order requires sorting, which takes O(n log n), and searching for a course requires O(n) time. While vectors are straightforward, they are less efficient in bigger datasets. 
+
+The hash table improves search performance. In the average case, inserting and searching are O(1), and loading the file is O(n). Since hash tables do not maintain sorted order, printing courses alphabetically requires extracting and sorting the keys, which takes O(n log n). This adds extra processing for ordered output. 
+
+The binary search tree maintains data in sorted order. insertion and searching are O(log n), and an in-order traversal prints all courses in O(n) time without additional sorting. Although performance can degrade to O(n) if the tree becomes unbalanced, the BST efficiently supports both searching and ordered printing. 
+
+CODE FOR SORTING
+// Class for Binary Search Tree
+class BinarySearchTree {
+private:
+	// Structure for Node BST
+	struct Node {
+		Course course;
+		Node* left;
+		Node* right;
+
+		Node() {
+			left = nullptr;
+			right = nullptr;
+		} 
+
+		Node(Course aCourse) {
+			course = aCourse;
+			left = nullptr;
+			right = nullptr;
+		}
+	};
+
+	Node* root;
+	void inOrder(Node* node);
+	int size = 0;
+
+public:
+	BinarySearchTree();
+	void InOrder();
+	void Insert(Course aCourse);
+	Course Search(string courseNumber);
+	int Size();
+};
+BinarySearchTree::BinarySearchTree() {
+	this->root = nullptr;
+}
+
+//In-Order Traversal
+void BinarySearchTree::InOrder() {
+	inOrder(root);
+}
+
+CODE FOR PRINTING THE COURSE LIST
+void BinarySearchTree::inOrder(Node* node) {
+
+	if (node == NULL) {
+
+		return;
+	}
+	inOrder(node->left);
+
+	cout << node->course.courseNumber << ", " << node->course.courseTitle << endl;
+
+	inOrder(node->right);
+}
+
+int BinarySearchTree::Size() {
+
+	return size;
+}
